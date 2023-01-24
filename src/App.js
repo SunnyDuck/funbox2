@@ -22,7 +22,7 @@ const App = (props) => {
       <div className='app-wrapper'>
         <div></div>
         <h1>Ты сегодня покормил кота?</h1>
-        <h2>Корзина: {props.store.shoppingCart}</h2>
+        <h2>Корзина:  {props.store.shoppingCart}</h2>
         {card}
       </div>
   );
