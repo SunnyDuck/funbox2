@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Card from "./Components/Card/Card";
+import {cardColorReplace} from "./state";
 
-function App() {
+const App = (props) => {
+
+  let card = props.store.cardFood.map( d=> <Card
+      cardFood = {d.item}
+      cardText = {props.store.cardText}
+      numberOfServings = {d.numberOfServings}
+      numberOfGifts = {d.numberOfGifts}
+      goodsWeight = {d.goodsWeight}
+      colorCard = {d.colorCard}
+      disableCard = {d.disableCard}
+      cardId = {d.id}
+      colorReplace = {cardColorReplace}
+  />)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='app-wrapper'>
+        <div></div>
+        <h1>Ты сегодня покормил кота?</h1>
+        <h2>Корзина: {props.store.shoppingCart}</h2>
+        {card}
+      </div>
   );
 }
 
